@@ -1,9 +1,16 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
+import { Masthead } from "./components/Masthead/Masthead";
+import { Splash } from "./components/Splash/Splash";
+
 function App() {
-  return <div className="App">Synched-In is running...</div>;
+  return (
+    <div>
+      <Masthead />
+      <Splash />
+    </div>
+  );
 }
 
 export default App;
