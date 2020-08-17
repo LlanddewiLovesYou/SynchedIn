@@ -2,24 +2,21 @@ import React, { useState } from "react";
 import "./Masthead.scss";
 import userIcon from "../../assets/user-icon.png";
 
-export interface Props {}
+export interface Props {
+  loginCallback: () => {};
+}
 
-export const Masthead: React.FC<Props> = () => {
+export const Masthead: React.FC<Props> = ({ loginCallback }) => {
   const [state, setState] = useState({ loggedin: false });
 
   const login = (): void => {
     setState({ loggedin: true });
-    //router.push('/profilepage') - implement router!
+    loginCallback();
   };
   return (
     <div className="masthead">
       <span className="masthead__option logo">SynchedIn</span>
       <div className="right">
-        {state.loggedin && (
-          <a className="masthead__option" href="#">
-            Send Messages
-          </a>
-        )}
         {!state.loggedin ? (
           <button
             className="masthead__login-button masthead__login"
