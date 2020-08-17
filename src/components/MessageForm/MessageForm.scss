@@ -1,0 +1,25 @@
+@import "../../colors.scss";
+
+.message-form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  textarea {
+    width: 50%;
+    height: 300px;
+    margin-bottom: 20px;
+  }
+  &__box {
+    display: flex;
+    margin: 0 30px;
+  }
+  button {
+    font-family: "Open Sans Light";
+    padding: 10px;
+    border-radius: 0;
+    border: 1px solid $gray-1;
+    background-color: $blue-1;
+    color: white;
+    font-size: 16px;
+  }
+}
