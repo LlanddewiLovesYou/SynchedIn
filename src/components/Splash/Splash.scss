@@ -1,0 +1,21 @@
+@import "../../colors.scss";
+.splash {
+  font-family: "Open Sans Light";
+  display: flex;
+  background-color: $white-1;
+  align-items: center;
+  &__copy {
+    font-size: 18px;
+    margin-left: 40px;
+    .title {
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+  height: 100vh;
+  img {
+    height: 100vh;
+    width: 70%;
+  }
+}
