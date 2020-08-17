@@ -14,7 +14,7 @@ export const Selector: React.FC<Props> = ({ companies }) => {
   console.log(selectedCompany.company.contacts);
   return (
     <div className="selector">
-      Message Contacts at:
+      Message Your Contacts at:
       <div className="companies">
         {companies.map((company, i) =>
           company === selectedCompany.company ? (
