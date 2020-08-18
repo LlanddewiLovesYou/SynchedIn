@@ -10,22 +10,22 @@ import {
 import { contacts } from "../response2.js";
 import { formReducer } from "../reducers/formReducer";
 
-// const props = { contacts, dispatch: () => {} };
+const props = { contacts, dispatch: () => {} };
 
-// export default {
-//   title: "Components/ContactSelector",
-//   component: ContactSelector,
-//   argTypes: {
-//     backgroundColor: { control: "color" },
-//   },
-// };
+export default {
+  title: "Components/ContactSelector",
+  component: ContactSelector,
+  argTypes: {
+    backgroundColor: { control: "color" },
+  },
+};
 
-// const Template: Story<Props> = () => (
-//   const [state, dispatch] = useReducer(formReducer, {
-//     message: "",
-//     recipients: [],
-//   });
-//   <ContactSelector {...props}></ContactSelector>
-// );
+const Template: Story<Props> = () => (
+  // const [state, dispatch] = useReducer(formReducer, {
+  //   message: "",
+  //   recipients: [],
+  // });
+  <ContactSelector {...props}></ContactSelector>
+);
 
-// export const SelectContacts = Template.bind({});
+export const SelectContacts = Template.bind({});
