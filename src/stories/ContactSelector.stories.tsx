@@ -21,10 +21,6 @@ export default {
 };
 
 const Template: Story<Props> = () => (
-  // const [state, dispatch] = useReducer(formReducer, {
-  //   message: "",
-  //   recipients: [],
-  // });
   <ContactSelector {...props}></ContactSelector>
 );
 
