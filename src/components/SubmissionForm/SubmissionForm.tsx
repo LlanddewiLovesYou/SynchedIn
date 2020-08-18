@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import "./SubmissionForm.scss";
-import { Selector } from "../ContactSelector/ContactSelector";
+import { ContactSelector } from "../ContactSelector/ContactSelector";
 import { contacts } from "../../response2.js";
+import { formReducer } from "../../reducers/formReducer";
+import { MessageTextArea } from "../MessageTextArea/MessageTextArea";
 
-export interface Props {
-  //   children: any;
-}
+export interface Props {}
 
-export const MessageForm: React.FC<Props> = ({ children }) => {
-  const [formState, setFormState] = useState({ message: "", recipients: [] });
+export const SubmissionForm: React.FC<Props> = ({ children }) => {
+  const handleSubmit = () => {
+    console.log("submitted state", state);
+  };
+  const [state, dispatch] = useReducer(formReducer, {
+    message: "",
+    recipients: [],
+  });
   return (
-    <form onSubmit={() => console.log("submitted")} className="message-form">
+    <form onSubmit={() => handleSubmit()} className="message-form">
       <div className="message-form__box">
-        {children}
-        <Selector contacts={contacts} setFormState={setFormState}></Selector>
+        <MessageTextArea dispatch={dispatch} />
+        <ContactSelector
+          contacts={contacts}
+          dispatch={dispatch}
+        ></ContactSelector>
       </div>
       <button>Send Messages</button>
     </form>

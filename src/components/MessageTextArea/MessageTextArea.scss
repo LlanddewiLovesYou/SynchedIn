@@ -1,3 +1,5 @@
+@import "../../colors.scss";
+
 .message-text {
   display: flex;
   flex-direction: column;
@@ -7,5 +9,7 @@
     margin-top: 10px;
     height: 300px;
     margin-bottom: 20px;
+    border: 1px solid $gray-1;
+    boder-radius: 1px;
   }
 }

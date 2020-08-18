@@ -1,13 +1,23 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import "./MessageTextArea.scss";
+import { Action } from "../../interfaces/Action.interface";
 
-export interface Props {}
+export interface Props {
+  dispatch: Dispatch<Action>;
+}
 
-export const MessageTextArea: React.FC<Props> = () => {
+export const MessageTextArea: React.FC<Props> = ({ dispatch }) => {
   return (
     <div className="message-text">
       Type your message here...
-      <textarea></textarea>
+      <textarea
+        onChange={(e) =>
+          dispatch({
+            type: "UPDATE_MESSAGE",
+            payload: (e.target as HTMLTextAreaElement).value,
+          })
+        }
+      ></textarea>
     </div>
   );
 };

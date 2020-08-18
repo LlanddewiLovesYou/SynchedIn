@@ -1,20 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-  useHistory,
-  useLocation,
-} from "react-router-dom";
 
 import { Masthead } from "./components/Masthead/Masthead";
 import { Splash } from "./components/Splash/Splash";
-import { MessageForm } from "./components/MessageForm/MessageForm";
+import { SubmissionForm } from "./components/SubmissionForm/SubmissionForm";
 import { LoginModal } from "./components/LoginModal/LoginModal";
-import { MessageTextArea } from "./components/MessageTextArea/MessageTextArea";
 
 function App() {
   const [state, setState] = useState({ loggedIn: false, loading: false });
@@ -34,9 +24,7 @@ function App() {
       <Masthead loginCallback={appLogin} />
       {state.loggedIn ? (
         <div className="app__box">
-          <MessageForm>
-            <MessageTextArea />
-          </MessageForm>
+          <SubmissionForm />
         </div>
       ) : (
         <Splash />

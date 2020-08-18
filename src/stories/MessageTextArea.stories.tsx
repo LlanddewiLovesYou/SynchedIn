@@ -7,7 +7,9 @@ import {
   Props,
 } from "../components/MessageTextArea/MessageTextArea";
 
-const props = {};
+const props = {
+  dispatch: () => {},
+};
 
 export default {
   title: "Components/MessageTextArea",
