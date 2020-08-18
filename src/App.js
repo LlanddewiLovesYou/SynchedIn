@@ -14,6 +14,7 @@ import { Masthead } from "./components/Masthead/Masthead";
 import { Splash } from "./components/Splash/Splash";
 import { MessageForm } from "./components/MessageForm/MessageForm";
 import { LoginModal } from "./components/LoginModal/LoginModal";
+import { MessageTextArea } from "./components/MessageTextArea/MessageTextArea";
 
 function App() {
   const [state, setState] = useState({ loggedIn: false, loading: false });
@@ -34,7 +35,7 @@ function App() {
       {state.loggedIn ? (
         <div className="app__box">
           <MessageForm>
-            <textarea></textarea>
+            <MessageTextArea />
           </MessageForm>
         </div>
       ) : (

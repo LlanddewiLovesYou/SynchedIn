@@ -1,0 +1,10 @@
+.message-text {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  font-family: "Open Sans Light";
+  textarea {
+    height: 300px;
+    margin-bottom: 20px;
+  }
+}
