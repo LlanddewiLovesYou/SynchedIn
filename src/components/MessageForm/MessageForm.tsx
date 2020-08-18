@@ -1,7 +1,7 @@
 import React from "react";
 import "./MessageForm.scss";
-import { Selector } from "../Selector/Selector";
-import { companies } from "../../response.js";
+import { Selector } from "../ContactSelector/ContactSelector";
+import { contacts } from "../../response2.js";
 
 export interface Props {
   //   children: any;
@@ -12,7 +12,7 @@ export const MessageForm: React.FC<Props> = ({ children }) => {
     <form onSubmit={() => console.log("submitted")} className="message-form">
       <div className="message-form__box">
         {children}
-        <Selector companies={companies}></Selector>
+        <Selector contacts={contacts}></Selector>
       </div>
       <button>Send Messages</button>
     </form>
