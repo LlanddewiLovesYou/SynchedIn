@@ -1,0 +1,20 @@
+@import "../../colors.scss";
+
+.login-modal {
+  display: flex;
+  flex-direction: column;
+  background-color: $white-2;
+  font-family: "Open Sans Light";
+  width: 500px;
+  align-items: center;
+  position: absolute;
+  top: 10%;
+  left: calc(50% - 250px);
+  box-shadow: 1px 1px 5px black;
+  .spinner {
+    width: 300px;
+  }
+  .logo {
+    height: 100px;
+  }
+}

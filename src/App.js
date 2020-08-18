@@ -13,15 +13,25 @@ import {
 import { Masthead } from "./components/Masthead/Masthead";
 import { Splash } from "./components/Splash/Splash";
 import { MessageForm } from "./components/MessageForm/MessageForm";
+import { LoginModal } from "./components/LoginModal/LoginModal";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [state, setState] = useState({ loggedIn: false, loading: false });
 
-  const appLogin = () => setLoggedIn(true);
+  const appLogin = () => {
+    setState({ ...state, loading: true });
+    setTimeout(() => {
+      setState({ ...state, loggedIn: true });
+    }, 3000);
+    setTimeout(() => {
+      setState({ loggedIn: true, loading: false });
+    }, 3500);
+  };
   return (
     <div>
+      <LoginModal loading={state.loading} />
       <Masthead loginCallback={appLogin} />
-      {loggedIn ? (
+      {state.loggedIn ? (
         <div className="app__box">
           <MessageForm>
             <textarea></textarea>
