@@ -13,8 +13,10 @@
   box-shadow: 1px 1px 5px black;
   &__message {
     margin: 0 30px;
+    min-height: 50px;
   }
   .spinner {
+    max-height: 174px;
   }
   .logo {
     height: 100px;

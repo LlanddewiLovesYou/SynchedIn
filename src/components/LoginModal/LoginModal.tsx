@@ -8,12 +8,12 @@ export interface Props {
 }
 
 export const LoginModal: React.FC<Props> = ({ loading }) => {
-  const showModal = loading ? { display: "flex" } : { display: "none" };
-  return (
-    <div className="login-modal" style={showModal}>
-      <img src={linkedIn} className="logo"></img>
+  // const showModal = loading ? { display: "flex" } : { display: "none" };
+  return loading ? (
+    <div className="login-modal">
+      <img src={linkedIn} className="logo" alt=""></img>
       Logging with your LinkedIn account...
-      <img src={image} className="spinner"></img>
+      <img src={image} className="spinner" alt=""></img>
     </div>
-  );
+  ) : null;
 };

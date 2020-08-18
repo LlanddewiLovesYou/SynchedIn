@@ -16,7 +16,7 @@ export const Splash: React.FC<Props> = () => {
           click!
         </div>
       </div>
-      <img src={splashImage} />
+      <img src={splashImage} alt="" />
     </div>
   );
 };

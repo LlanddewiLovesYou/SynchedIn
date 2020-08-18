@@ -1,6 +1,6 @@
 import React, { useState, Dispatch } from "react";
 import "./ContactSelector.scss";
-import { Contact } from "../../interfaces/contact.interface";
+import { Contact } from "../../interfaces/Contact.interface";
 import userIcon from "../../assets/user-icon.png";
 import closeIcon from "../../assets/close-icon.png";
 import { Action } from "../../interfaces/Action.interface";
@@ -8,9 +8,14 @@ import { Action } from "../../interfaces/Action.interface";
 export interface Props {
   contacts: Contact[];
   dispatch: Dispatch<Action>;
+  selected: string[];
 }
 
-export const ContactSelector: React.FC<Props> = ({ contacts, dispatch }) => {
+export const ContactSelector: React.FC<Props> = ({
+  contacts,
+  dispatch,
+  selected,
+}) => {
   const [selectedCompany, setSelectedCompany] = useState<string | undefined>(
     undefined
   );
@@ -18,30 +23,41 @@ export const ContactSelector: React.FC<Props> = ({ contacts, dispatch }) => {
   const filteredContacts = selectedCompany
     ? contacts.filter((contact) => contact.company === selectedCompany)
     : contacts;
+
   return (
     <div className="selector">
-      <div>
-        Message your contacts{" "}
-        {selectedCompany ? (
-          <span>
-            at{" "}
-            <span className="selector__company">
-              {selectedCompany}
-              <img
-                src={closeIcon}
-                onClick={() => setSelectedCompany(undefined)}
-                alt=""
-              ></img>
+      <div className="selector__box">
+        <div>
+          Message your contacts{" "}
+          {selectedCompany ? (
+            <span>
+              at{" "}
+              <span className="selector__company">
+                {selectedCompany}
+                <img
+                  src={closeIcon}
+                  onClick={() => setSelectedCompany(undefined)}
+                  alt=""
+                ></img>
+              </span>
             </span>
-          </span>
-        ) : null}
+          ) : null}
+        </div>
       </div>
       <div className="selector__contacts">
+        <button
+          type="button"
+          onClick={() => dispatch({ type: "CLEAR_RECIPIENTS", payload: [] })}
+          className="deselect-all"
+        >
+          De-select All
+        </button>
         {filteredContacts.map((contact) => (
           <label key={contact.linkedinId}>
             <input
               type="checkbox"
               value={contact.linkedinId}
+              checked={selected.includes(contact.linkedinId)}
               onClick={(e) => {
                 if (!(e.target as HTMLInputElement).checked) {
                   dispatch({

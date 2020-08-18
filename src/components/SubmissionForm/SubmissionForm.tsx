@@ -2,7 +2,7 @@ import React, { useReducer, useState } from "react";
 import "./SubmissionForm.scss";
 import { ContactSelector } from "../ContactSelector/ContactSelector";
 import { contacts } from "../../response2.js";
-import { Contact } from "../../interfaces/contact.interface";
+import { Contact } from "../../interfaces/Contact.interface";
 import { formReducer } from "../../reducers/formReducer";
 import { MessageTextArea } from "../MessageTextArea/MessageTextArea";
 import { SendingModal } from "../SendingModal/SendingModal";
@@ -18,7 +18,9 @@ export const SubmissionForm: React.FC<Props> = ({ children }) => {
 
   const handleSubmit = () => {
     setModalState({ ...modalState, open: true });
-    dispatch({ type: "UPDATE_MESSAGE", payload: "" });
+    if (state.recipients.length > 0) {
+      dispatch({ type: "UPDATE_MESSAGE", payload: "" });
+    }
     setTimeout(() => {
       setModalState({ open: true, loading: false });
     }, 3000);
@@ -49,6 +51,7 @@ export const SubmissionForm: React.FC<Props> = ({ children }) => {
         <MessageTextArea dispatch={dispatch} value={state.message} />
         <ContactSelector
           contacts={contacts}
+          selected={state.recipients}
           dispatch={dispatch}
         ></ContactSelector>
       </div>
@@ -63,7 +66,7 @@ const getDisplayNames = (recipientArray: string[]) => {
     if (i !== recipientArray.length - 1) {
       namesString = namesString + name + ", ";
     } else {
-      namesString = namesString + name + ". ";
+      namesString = namesString + "and " + name + ". ";
     }
   });
   return namesString;

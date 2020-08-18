@@ -10,7 +10,7 @@ import {
 import { contacts } from "../response2.js";
 import { formReducer } from "../reducers/formReducer";
 
-const props = { contacts, dispatch: () => {} };
+const props = { contacts, dispatch: () => {}, selected: [] };
 
 export default {
   title: "Components/ContactSelector",

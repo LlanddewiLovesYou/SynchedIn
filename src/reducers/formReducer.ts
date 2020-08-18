@@ -1,12 +1,12 @@
-import { Contact } from "../interfaces/contact.interface";
-
+import { Contact } from "../interfaces/Contact.interface";
+import { Action } from "../interfaces/Action.interface";
 interface State {
   contacts: Contact[];
   message: string;
   recipients: string[];
 }
 
-export const formReducer = (state: State, action: any): State => {
+export const formReducer = (state: State, action: Action): State => {
   switch (action.type) {
     case "ADD_ID_TO_RECIPIENTS":
       return { ...state, recipients: [...state.recipients, action.payload] };
@@ -21,6 +21,11 @@ export const formReducer = (state: State, action: any): State => {
       return {
         ...state,
         message: action.payload,
+      };
+    case "CLEAR_RECIPIENTS":
+      return {
+        ...state,
+        recipients: [],
       };
     default:
       return state;
