@@ -14,5 +14,7 @@ export default {
 
 const Template: Story<Props> = (args) => <SendingModal {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {};
+export const Complete = Template.bind({});
+Complete.args = { open: true, recipientNames: "John Doe, Jane Doe" };
+export const Loading = Template.bind({});
+Loading.args = { open: true, loading: true };
