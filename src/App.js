@@ -5,6 +5,7 @@ import { Masthead } from "./components/Masthead/Masthead";
 import { Splash } from "./components/Splash/Splash";
 import { SubmissionForm } from "./components/SubmissionForm/SubmissionForm";
 import { LoginModal } from "./components/LoginModal/LoginModal";
+import { SendingModal } from "./components/SendingModal/SendingModal";
 
 function App() {
   const [state, setState] = useState({ loggedIn: false, loading: false });

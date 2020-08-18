@@ -11,16 +11,16 @@ const props = {
   dispatch: () => {},
 };
 
-export default {
-  title: "Components/MessageTextArea",
-  component: MessageTextArea,
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
-};
+// export default {
+//   title: "Components/MessageTextArea",
+//   component: MessageTextArea,
+//   argTypes: {
+//     backgroundColor: { control: "color" },
+//   },
+// };
 
-const Template: Story<Props> = () => (
-  <MessageTextArea {...props}></MessageTextArea>
-);
+// const Template: Story<Props> = () => (
+//   <MessageTextArea {...props}></MessageTextArea>
+// );
 
-export const TextArea = Template.bind({});
+// export const TextArea = Template.bind({});

@@ -4,9 +4,10 @@ import { Action } from "../../interfaces/Action.interface";
 
 export interface Props {
   dispatch: Dispatch<Action>;
+  value: string;
 }
 
-export const MessageTextArea: React.FC<Props> = ({ dispatch }) => {
+export const MessageTextArea: React.FC<Props> = ({ dispatch, value }) => {
   return (
     <div className="message-text">
       Type your message here...
@@ -17,6 +18,7 @@ export const MessageTextArea: React.FC<Props> = ({ dispatch }) => {
             payload: (e.target as HTMLTextAreaElement).value,
           })
         }
+        value={value}
       ></textarea>
     </div>
   );
