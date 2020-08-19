@@ -41,7 +41,7 @@ export const SubmissionForm: React.FC<Props> = ({ children }) => {
   );
 
   return (
-    <form onClick={(e) => handleSubmit(e)} className="message-form">
+    <form onSubmit={(e) => handleSubmit(e)} className="message-form">
       <SendingModal
         recipientNames={recipientNames}
         open={modalState.open}
