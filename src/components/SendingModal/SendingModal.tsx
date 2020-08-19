@@ -10,7 +10,7 @@ export interface Props {
   recipientNames: string;
   open: boolean;
   loading: boolean;
-  setState: any;
+  setState;
 }
 
 export const SendingModal: React.FC<Props> = ({

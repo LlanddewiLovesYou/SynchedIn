@@ -32,7 +32,7 @@ export const Masthead: React.FC<Props> = ({ loginCallback }) => {
             <span className="masthead__option">
               Welcome, Christopher
               <span>
-                <img src={userIcon}></img>
+                <img src={userIcon} alt=""></img>
               </span>
             </span>
           </div>

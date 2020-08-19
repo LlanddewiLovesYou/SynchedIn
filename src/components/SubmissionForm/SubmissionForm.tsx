@@ -16,7 +16,8 @@ export const SubmissionForm: React.FC<Props> = ({ children }) => {
     recipients: [],
   });
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setModalState({ ...modalState, open: true });
     if (state.recipients.length > 0) {
       dispatch({ type: "UPDATE_MESSAGE", payload: "" });
@@ -40,7 +41,7 @@ export const SubmissionForm: React.FC<Props> = ({ children }) => {
   );
 
   return (
-    <div className="message-form">
+    <form onClick={(e) => handleSubmit(e)} className="message-form">
       <SendingModal
         recipientNames={recipientNames}
         open={modalState.open}
@@ -55,10 +56,8 @@ export const SubmissionForm: React.FC<Props> = ({ children }) => {
           dispatch={dispatch}
         ></ContactSelector>
       </div>
-      <button onClick={() => handleSubmit()} type="submit">
-        Send Messages
-      </button>
-    </div>
+      <button type="submit">Send Messages</button>
+    </form>
   );
 };
 
