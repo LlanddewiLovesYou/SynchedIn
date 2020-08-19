@@ -1,8 +1,8 @@
 # **SynchedIn**
 
-### Automate your LinkedIn Communication! <br/>
+## Automate your LinkedIn Communication!
 
-## To Run and Use the App:
+### To Run and Use the App:
 
 1. Clone the repo, then run `yarn && yarn start`
 
