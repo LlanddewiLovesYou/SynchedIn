@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Masthead.scss";
 import userIcon from "../../assets/user-icon.png";
+import { useHistory } from "react-router-dom";
 
 export interface Props {
   loginCallback: () => {};
@@ -8,10 +9,12 @@ export interface Props {
 
 export const Masthead: React.FC<Props> = ({ loginCallback }) => {
   const [state, setState] = useState({ loggedin: false });
+  const history = useHistory();
 
   const login = (): void => {
     setState({ loggedin: true });
     loginCallback();
+    history.push("/message-contacts");
   };
   return (
     <div className="masthead">

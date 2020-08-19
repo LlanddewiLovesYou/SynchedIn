@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Masthead } from "./components/Masthead/Masthead";
 import { Splash } from "./components/Splash/Splash";
@@ -20,17 +21,22 @@ function App() {
     }, 3500);
   };
   return (
-    <div>
+    <Router>
       <LoginModal loading={state.loading} />
       <Masthead loginCallback={appLogin} />
-      {state.loggedIn ? (
-        <div className="app__box">
-          <SubmissionForm />
-        </div>
-      ) : (
-        <Splash />
-      )}
-    </div>
+      <Switch>
+        {state.loggedIn && (
+          <Route path="/message-contacts">
+            <div className="app__box">
+              <SubmissionForm />
+            </div>
+          </Route>
+        )}
+        <Route path="/">
+          <Splash />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

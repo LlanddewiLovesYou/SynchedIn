@@ -40,7 +40,7 @@ export const SubmissionForm: React.FC<Props> = ({ children }) => {
   );
 
   return (
-    <form onSubmit={() => handleSubmit()} className="message-form">
+    <div className="message-form">
       <SendingModal
         recipientNames={recipientNames}
         open={modalState.open}
@@ -55,8 +55,10 @@ export const SubmissionForm: React.FC<Props> = ({ children }) => {
           dispatch={dispatch}
         ></ContactSelector>
       </div>
-      <button>Send Messages</button>
-    </form>
+      <button onClick={() => handleSubmit()} type="submit">
+        Send Messages
+      </button>
+    </div>
   );
 };
 
