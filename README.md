@@ -1,9 +1,9 @@
 # **SynchedIn**
 
-### Automate your LinkedIn Communication!
+### Automate your LinkedIn Communication! <br/>
 
-<br/>
-## __To Run and Use the App:__
+## To Run and Use the App:
+
 1. Clone the repo, then run `yarn && yarn start`
 
 2. The browser should open automatically, but if it doesn't for any reason visit [http://localhost:3000](http://localhost:3000) as mentioned below.
